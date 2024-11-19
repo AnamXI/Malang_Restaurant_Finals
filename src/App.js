@@ -16,15 +16,21 @@ function App() {
         </div>
 
         {/*PANEL 2*/}
-        <div class="container">
-          <img src="assets/goldbg.png" style={{width: "100%"}}></img>
-          <div style={{position: "absolute", left: "45%", top: "45%", color: "black"}} ><h1>HIA</h1></div>
+        <div class="container" style={{backgroundImage: `url("assets/goldbg.png")`, backgroundSize: "cover", color: "black", padding: "120px 0px 120px 0px"}} >
+            <h1 style={{fontSize: "calc(20px + 4vw)"}}>NAMASKAR!!</h1>
+            <h1>नमस्कार</h1>
+            <div style={{width: "80vw", marginLeft: "auto", marginRight: "auto"}}>
+            <h4>Welcome to Matsala. The place where Filipino Culture meets Indian Cuisine Inspired by the rich, aromatic spices of India and the bold, soulful flavors of the Philippines, we’ve created a menu that’s as unique as it is delicious.  We invite you to explore the unexpected, savor the familiar, and experience a fusion that’s truly one-of-a-kind.
+            </h4>
+          
+          </div>
+          
         </div>
 
 
 
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          BOTTOM BAR
         </p>
 
         

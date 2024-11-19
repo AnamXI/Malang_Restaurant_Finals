@@ -1,3 +1,14 @@
+@font-face {
+  font-family: KP;
+  src: url(/public/assets/Krabby\ Patty.ttf);
+}
+
+h1{
+  font-family: KP;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .App {
   text-align: center;
 }

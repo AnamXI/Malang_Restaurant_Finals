@@ -11,6 +11,10 @@ root.render(
   </React.StrictMode>
 );
 
+//  Main Colors:
+//  Blue = #219ebc   Orange = #fb8500
+//  Black = #1d1d1d  White = #e9e9e9 or #f3f3f3
+
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
