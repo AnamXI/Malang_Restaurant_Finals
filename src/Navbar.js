@@ -1,10 +1,13 @@
+import { Link, useMatch, useResolvedPath } from "react-router-dom"
+
 export default function Navbar(){
+    
     return <section  style={{position: "sticky", top: "0", zIndex: "100"}}>
         
-        <nav className="nav" >
+        <nav className="nav">
 
         {/* LOGO STAMP */}
-        <a href="/">
+        <Link to="/">
             <div style={{
                 position: "absolute", backgroundColor: "aquamarine", 
                 backgroundImage: `url("assets/logostamp.png")`, 
@@ -14,17 +17,29 @@ export default function Navbar(){
                 borderBottom: "0.6vw solid black", 
                 overflow: "visible", zIndex: "101"}}>
             </div>
-        </a>
+        </Link>
 
         {/* NAVIGATION BUTTONS */}
         <ul>
-            <li style={{marginLeft: "100px"}}><a href="/home">Home</a></li>
-            <li>  <a href="/home">Menus</a>  </li>
-            <li>  <a href="/home">Account</a>  </li>
-            <li>  <a href="/home">Reservations</a>  </li>
-            <li>  <a href="/home">Orders</a>  </li>
+            <li style={{marginLeft: "100px"}}><CustomLink to="/">Home</CustomLink></li>
+            <li>  <CustomLink to="/menus">Menus</CustomLink>  </li>
+            <li>  <CustomLink to="/account">Account</CustomLink>  </li>
+            <li>  <CustomLink to="/reservations">Reservations</CustomLink>  </li>
+            <li>  <CustomLink to="/orders">Orders</CustomLink>  </li>
         </ul>
         </nav>
-        
+
     </section>
+}
+
+function CustomLink({to, children, ...props}) {
+    const resolvedPath = useResolvedPath(to)
+    const isActive = useMatch({path: resolvedPath.pathname, end: true})
+    return (
+        <li className={isActive ? "active" : ""}>
+            <Link to={to} {...props}>
+            {children}
+            </Link>
+        </li>
+    )
 }

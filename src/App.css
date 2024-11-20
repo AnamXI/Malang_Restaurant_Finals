@@ -100,10 +100,11 @@ h4 {font-family: Ara; font-weight: lighter; margin-top: 0px;  margin-bottom: 0px
   flex-wrap: wrap;
 }
 
+.nav li.active{background-color: #ffcc00;}
+.nav Link.active{color: #ffde59;}
 .nav li:hover{background-color: black;}
 .nav a:hover{color: #ffde59;}
-.nav li:active{background-color: black;}
-.nav a:active{color: #ffde59;}
+
 
 @keyframes App-logo-spin {
   from {
