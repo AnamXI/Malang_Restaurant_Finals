@@ -2,11 +2,14 @@ import React from 'react'
 import ReactDom from 'react-dom'
 
 const MODAL_STYLES = {
+    justifyContent: 'center',
+    textAlign: 'center',
     position: 'fixed',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#ffffff',
+    color: '#000000',
     borderRadius: '10px',
     padding: '50px',
     zIndex: 1000  
@@ -36,3 +39,5 @@ export default function Modal({ open, children, onClose }) {
     document.getElementById('portal')
   )
 }
+
+
