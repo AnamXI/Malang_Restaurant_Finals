@@ -2,9 +2,20 @@
 @font-face {font-family: KP; src: url(/public/assets/Krabby\ Patty.ttf);}
 @font-face {font-family: Ara;src: url(/public/assets/Arapey.ttf);}
 
-h1{ font-family: KP;  margin-top: 0px;  margin-bottom: 0px;}
-h2 {font-family: KP; margin-top: 0px;  margin-bottom: 0px;}
+h1{ font-family: KP, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;;  margin-top: 0px;  margin-bottom: 0px;}
+h2 {font-family: KP, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;; margin-top: 0px;  margin-bottom: 0px;}
 h4 {font-family: Ara; font-weight: lighter; margin-top: 0px;  margin-bottom: 0px;}
+hr {width: 80%;}
+
+button {
+  padding: 12px 64px 12px 64px;  border: none;
+  border-radius: 40px;  background-color: #ffde59;
+  font-family: KP, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+label {
+  font-family: Ara, 'Times New Roman', Times, serif;
+}
 
 .App {text-align: center;}
 
@@ -24,7 +35,7 @@ h4 {font-family: Ara; font-weight: lighter; margin-top: 0px;  margin-bottom: 0px
 }
 
 .container {
-  width: 100vw;
+  width: 100vw; 
   height: auto;
   background-color: #61dafb;
   text-align: center;
@@ -67,6 +78,24 @@ h4 {font-family: Ara; font-weight: lighter; margin-top: 0px;  margin-bottom: 0px
   background-Size: cover;
   border: none;
   width: 100%;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--bs-body-color);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: white;
+  background-clip: padding-box;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .nav{

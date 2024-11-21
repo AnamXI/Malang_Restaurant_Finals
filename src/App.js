@@ -7,6 +7,7 @@ import Menus from './Menus';
 import Account from './Account';
 import Reservations from './Reservations';
 import Orders from './Orders';
+import { AddProducts } from './components/AddProducts';
 
 function App() {
   console.log(window.location)
@@ -21,6 +22,7 @@ function App() {
         <Route path="/account" element={<Account />}/>
         <Route path="/reservations" element={<Reservations />}/>
         <Route path="/orders" element={<Orders />}/>
+        <Route path="/ap" element={<AddProducts />}/>
       </Routes>
 
     </div>
