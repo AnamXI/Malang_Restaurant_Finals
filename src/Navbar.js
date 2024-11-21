@@ -7,7 +7,7 @@ export default function Navbar(){
         <nav className="nav">
 
         {/* LOGO STAMP */}
-        <Link to="/">
+        <Link to="/ap">
             <div style={{
                 position: "absolute", backgroundColor: "aquamarine", 
                 backgroundImage: `url("assets/logostamp.png")`, 

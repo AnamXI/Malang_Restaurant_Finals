@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import '../App.css';
 import {storage, db} from '../config/Config'
+import Navbar from '../Navbar';
 
 export const AddProducts = () => {
 
@@ -31,6 +32,8 @@ export const AddProducts = () => {
 
   return (
     <div className="App-header">
+
+        <Navbar />
         <br/>
         <h2>Add Products</h2>
         <hr/>
