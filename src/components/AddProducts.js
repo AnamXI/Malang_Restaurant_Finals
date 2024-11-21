@@ -16,7 +16,7 @@ export const AddProducts = () => {
         console.log(productName,productPrice,productDesc,productImg);
 
         //Manual Change of ('e') to appropriate menu category
-        db.collection('Sweets').add({ 
+        db.collection('Pinoy').add({ 
             ProductName: productName,
             ProductPrice: productPrice,
             ProductDesc: productDesc,
@@ -41,22 +41,22 @@ export const AddProducts = () => {
             <label htmlFor="product-name">Product Name</label>
             <br/>
             <input type="text" className="form-control" required
-            onChange={(e) => setProductName(e.target.value)} value={productName}/>
+            onChange={(e) => setProductName(e.target.value)} value={productName}/><br/>
 
             <label htmlFor="product-price">Product Price</label>
             <br/>
             <input type="number" className="form-control" required
-            onChange={(e) => setProductPrice(e.target.value)} value={productPrice}/>
+            onChange={(e) => setProductPrice(e.target.value)} value={productPrice}/><br/>
 
             <label htmlFor="product-description">Product Description</label>
             <br/>
             <input type="text" className="form-control" required
-            onChange={(e) => setProductDesc(e.target.value)} value={productDesc}/>
+            onChange={(e) => setProductDesc(e.target.value)} value={productDesc}/><br/>
 
             <label htmlFor="product-image">Product Image</label>
             <br/>
             <input type="text" className="form-control" required
-            onChange={(e) => setProductImg(e.target.value)} value={productImg}/>
+            onChange={(e) => setProductImg(e.target.value)} value={productImg}/><br/>
 
             <br/>
             <button className="btn btn-success btn-md">
