@@ -26,8 +26,8 @@ function Menus() {
                     <button className="cardimg" style={{backgroundImage: `url("assets/mpinoy.png")`}}
                     onClick={function() {setIsOpen(true); setMcontent(
                       <>
-                        <h1>Hatdog</h1>
-                        <h4>Cheesedog</h4>
+                        <h1>PINOY</h1>
+                        <h4>Foods Menu</h4>
                       </>
                     )}}></button>
                     <h2>Pinoy</h2>
@@ -43,8 +43,8 @@ function Menus() {
                         <h4>Jalebi JaliJali</h4>
                       </>
                     )}}></button>
-                    <h2>Indian</h2>
-                    <h4>Dishes</h4>
+                    <h2>INDIAN</h2>
+                    <h4>Foods Menu</h4>
                   </div>
 
                   {/*SWEETS MENU MODAL*/}
@@ -52,8 +52,8 @@ function Menus() {
                     <button className="cardimg" style={{backgroundImage: `url("assets/msweets.png")`}}
                     onClick={function() {setIsOpen(true); setMcontent(
                       <>
-                        <h1>IceCream</h1>
-                        <h4>IceyIceyIceCream</h4>
+                        <h1>SWEETS</h1>
+                        <h4>& Deserts</h4>
                       </>
                     )}}></button>
                     <h2>Sweets</h2>
@@ -65,8 +65,8 @@ function Menus() {
                     <button className="cardimg" style={{backgroundImage: `url("assets/mdrinks.png")`}}
                     onClick={function() {setIsOpen(true); setMcontent(
                       <>
-                        <h1>RED HORSE</h1>
-                        <h4>Extra Strong</h4>
+                        <h1>DRINKS</h1>
+                        <h4>& Alcohol</h4>
                       </>
                     )}}></button>
                     <h2>Drinks</h2>
