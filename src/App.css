@@ -98,6 +98,7 @@ h4 {font-family: Ara; font-weight: lighter; margin-top: 0px;  margin-bottom: 0px
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
+  font-size: calc(20px + 0.8vw);
 }
 
 .nav li.active{background-color: #ffcc00;}

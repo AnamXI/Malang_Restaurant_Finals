@@ -16,7 +16,7 @@ function Menus() {
         <Navbar />    
 
         {/*MAIN MENUS*/}
-        <section className="container" style={{backgroundImage: `url("assets/menusbg.png")`, backgroundSize: "cover", color: "black", padding: "100px 0px 200px 0px"}} >
+        <section className="container" style={{backgroundImage: `url("assets/menusbg.png")`, backgroundSize: "cover", color: "black", padding: "120px 0px 200px 0px", height: "100vh"}} >
             <h1 style={{fontSize: "calc(20px + 4vw)"}}>Explore Our Various Flavors!</h1>
 
             <div className="cardbox">
@@ -31,7 +31,7 @@ function Menus() {
                       </>
                     )}}></button>
                     <h2>Pinoy</h2>
-                    <h4>Hello</h4>
+                    <h4>Dishes</h4>
                   </div>
                   
                   {/*INDIAN MENU MODAL*/}
@@ -44,7 +44,7 @@ function Menus() {
                       </>
                     )}}></button>
                     <h2>Indian</h2>
-                    <h4>Hello</h4>
+                    <h4>Dishes</h4>
                   </div>
 
                   {/*SWEETS MENU MODAL*/}
@@ -57,7 +57,7 @@ function Menus() {
                       </>
                     )}}></button>
                     <h2>Sweets</h2>
-                    <h4>Hello</h4>
+                    <h4>& Desserts</h4>
                   </div>
 
                   {/*DRINKS MENU MODAL*/}
@@ -65,20 +65,17 @@ function Menus() {
                     <button className="cardimg" style={{backgroundImage: `url("assets/mdrinks.png")`}}
                     onClick={function() {setIsOpen(true); setMcontent(
                       <>
-                        <h1>AHAHAHAHA</h1>
-                        <h4>Ailurophile Azile</h4>
+                        <h1>RED HORSE</h1>
+                        <h4>Extra Strong</h4>
                       </>
                     )}}></button>
                     <h2>Drinks</h2>
-                    <h4>Hello</h4>
+                    <h4>& Alcohol</h4>
                   </div>
 
-            </div>          
+            </div>
+            <br></br>          
         </section>
-
-        <br></br>
-        <button onClick={() => setIsOpen(true)}>HIIIIII</button>
-
         <Modal open={isOpen} onClose={() => setIsOpen(false)}>
           <h1>{mContent}</h1>
         </Modal>

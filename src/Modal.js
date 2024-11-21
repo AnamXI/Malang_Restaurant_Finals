@@ -32,7 +32,7 @@ export default function Modal({ open, children, onClose }) {
     <>
         <div style={OVERLAY_STYLES}></div>
         <div style={MODAL_STYLES}>
-            <button onClick={onClose}>CLOSE THAT MOTHERFUCKAR</button>
+            <button onClick={onClose}>CLOSE</button>
             {children}
         </div>
     </>,
