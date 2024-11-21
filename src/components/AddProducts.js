@@ -19,7 +19,7 @@ export const AddProducts = () => {
             ProductName: productName,
             ProductPrice: productPrice,
             ProductDesc: productDesc,
-            ProductImg: '"assets/foods/' + productImg +'"'
+            ProductImg: 'assets/foods/' + productImg
         }).then(()=>{
             setProductName('');
             setProductPrice(0);
