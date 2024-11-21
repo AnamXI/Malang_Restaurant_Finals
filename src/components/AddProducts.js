@@ -16,7 +16,7 @@ export const AddProducts = () => {
         console.log(productName,productPrice,productDesc,productImg);
 
         //Manual Change of ('e') to appropriate menu category
-        db.collection('Products').add({ 
+        db.collection('Sweets').add({ 
             ProductName: productName,
             ProductPrice: productPrice,
             ProductDesc: productDesc,

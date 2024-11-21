@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './Navbar';
 import Modal from './Modal';
 
 
+
+
 function Menus() {
   const [isOpen, setIsOpen] = useState(false); //Opens Modals
   const [mContent, setMcontent] = useState(); //Sets Content Of Menu Modals
+
 
   return (
     <div className="App">
