@@ -11,7 +11,7 @@ function Home() {
     
         {/*PANEL 1*/}
         <section className="container">
-        <img src="assets/homebg.png" style={{width: "100%"}}/>
+        <img src="assets/homebg.png" alt='Main Branch' style={{width: "100%"}}/>
         </section>
 
         {/*PANEL 2*/}
