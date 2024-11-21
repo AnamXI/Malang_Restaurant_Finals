@@ -1,7 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import '../App.css';
 
 export const AddProducts = () => {
+
+    const [productName, setProductName] = useState('');
+    const [productPrice, setProductPrice] = useState('');
+    const [productDesc, setProductDesc] = useState('');
+    const [productImg, setProductImg] = useState('');
+
   return (
     <div className="App-header">
         <br/>
@@ -14,9 +20,13 @@ export const AddProducts = () => {
 
             <label htmlFor="product-price">Product Price</label>
             <br/>
+            <input type="number" className="form-control" required/>
+
+            <label htmlFor="product-description">Product Description</label>
+            <br/>
             <input type="text" className="form-control" required/>
 
-            <label htmlFor="product-description">Product description</label>
+            <label htmlFor="product-image">Product Image</label>
             <br/>
             <input type="text" className="form-control" required/>
             <br/>
