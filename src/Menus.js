@@ -11,7 +11,6 @@ function Menus() {
   const [isOpen, setIsOpen] = useState(false); //Opens Modals
   const [mContent, setMcontent] = useState(); //Sets Content Of Menu Modals
 
-
   return (
     <div className="App">
       <header className="App-header">

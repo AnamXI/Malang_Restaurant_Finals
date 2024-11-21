@@ -5,25 +5,46 @@ import { auth, db } from './config/Config'
 import './App.css';
 
 export default function Orders() {
-  const [products, setProducts] = useState([]);
+  const [pinoy, setPinoy] = useState([]);
+  const [indian, setIndian] = useState([]);
+  const [sweets, setSweets] = useState([]);
+  const [drinks, setDrinks] = useState([]);
 
-  const getProducts = async ()=>{
-    const products = await db.collection('Sweets').get();
-    const productsArray = [];
-    for (var snap of products.docs){
+////Gets The Sweets Menu
+const getPinoy = async ()=>{
+  const pinoy = await db.collection('Pinoy').get();
+  const pinoyArray = [];
+  for (var snap of pinoy.docs){
+    var data = snap.data();
+    data.ID = snap.ID;
+    pinoyArray.push({
+      ...data
+    })
+    if (pinoyArray.length === pinoy.docs.length){
+      setPinoy(pinoyArray);
+    }}}
+
+////Gets The Sweets Menu
+  const getSweets = async ()=>{
+    const sweets = await db.collection('Sweets').get();
+    const sweetsArray = [];
+    for (var snap of sweets.docs){
       var data = snap.data();
       data.ID = snap.ID;
-      productsArray.push({
+      sweetsArray.push({
         ...data
       })
-      if (productsArray.length === products.docs.length){
-        setProducts(productsArray);
-      }
-    }
-  }
+      if (sweetsArray.length === sweets.docs.length){
+        setSweets(sweetsArray);
+      }}}
 
+      
+
+
+//BORDER///////////////////////////////////////////////
   useEffect(()=>{
-    getProducts();
+    getPinoy();
+    getSweets();
   },[])
 
   return (
@@ -35,16 +56,16 @@ export default function Orders() {
         <br></br>
         <hr />      
 
-        {products.length > 0 && (
-          <div className='container'>
+        {sweets.length > 0 && (
+          <div>
             <h1>Products</h1>
-            <div className='products-box'>
-              <Products products={products}/>
+            <div className='cardbox'>
+              <Products products={sweets}/>
               </div>
           </div>
         )}
-        {products.length < 1 && (
-          <div className='container'>Please Wait....</div>
+        {sweets.length < 1 && (
+          <div>Please Wait....</div>
         )}
     </div>
     </>
