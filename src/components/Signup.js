@@ -12,6 +12,7 @@ export const Signup = ({ user }) => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
+////Standard Firebase Register Authentication
     const Signup = (e) => {
         e.preventDefault();
         // NOTE: EMAIL ENNUMERATION PROTECTION HAS BEEN DISABLED MANUALLY

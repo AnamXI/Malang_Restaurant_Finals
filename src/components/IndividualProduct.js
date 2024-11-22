@@ -1,6 +1,7 @@
 import React from 'react'
 import '../App.css';
 
+////Individual Product Component for how each product will be displayed
 export const IndividualProduct = ({individualProduct, addToCart}) => {
 
   const handleAddToCart=()=>{
@@ -16,6 +17,7 @@ export const IndividualProduct = ({individualProduct, addToCart}) => {
       <p style={{fontSize: "clamp(20px, 2vw, 20px)"}}>{individualProduct.ProductDesc}</p>
       </div>
       
+      {/*Price Tag also functions as Add To Cart Button*/}
       <button onClick={handleAddToCart}><h3>${individualProduct.ProductPrice}.00</h3></button>
     </div>
   )

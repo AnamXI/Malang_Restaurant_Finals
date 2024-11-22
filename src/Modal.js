@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 
+////Modal Component for Menus
 const MODAL_STYLES = {
     display: 'block',
     justifyContent: 'center',

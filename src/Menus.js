@@ -19,7 +19,7 @@ export const Menus = ({ user }) => {
     useEffect(()=>{
       auth.onAuthStateChanged(user=>{
         if(user){
-          setUid(user.id);
+          setUid(user.ID);
         }
       })
     },[])
@@ -27,13 +27,13 @@ export const Menus = ({ user }) => {
   }
 
   const uid = GetUserId();
-
   const Navigate = useNavigate();
 
   const [isOpen, setIsOpen] = useState(false); //Opens Modals
   const [mContent, setMcontent] = useState(); //Sets Content Of Menu Modals
   const [mtitle, setMtitle] = useState(''); //Modal Title
 
+////Array For Menu Items
   const [pinoy, setPinoy] = useState([]);
   const [indian, setIndian] = useState([]);
   const [sweets, setSweets] = useState([]);
@@ -43,9 +43,9 @@ export const Menus = ({ user }) => {
 const getPinoy = async ()=>{
   const pinoy = await db.collection('Pinoy').get();
   const pinoyArray = [];
-  for (var snap of pinoy.docs){
-    var data = snap.data();
-    data.ID = snap.ID;
+  for (let snap of pinoy.docs){
+    let data = snap.data();
+    data.ID = snap.id;
     pinoyArray.push({
       ...data
     })
@@ -57,9 +57,9 @@ const getPinoy = async ()=>{
 const getIndian = async ()=>{
   const indian = await db.collection('Indian').get();
   const indianArray = [];
-  for (var snap of indian.docs){
-    var data = snap.data();
-    data.ID = snap.ID;
+  for (let snap of indian.docs){
+    let data = snap.data();
+    data.ID = snap.id;
     indianArray.push({
       ...data
     })
@@ -71,9 +71,9 @@ const getIndian = async ()=>{
   const getSweets = async ()=>{
     const sweets = await db.collection('Sweets').get();
     const sweetsArray = [];
-    for (var snap of sweets.docs){
-      var data = snap.data();
-      data.ID = snap.ID;
+    for (let snap of sweets.docs){
+      let data = snap.data();
+      data.ID = snap.id;
       sweetsArray.push({
         ...data
       })
@@ -85,9 +85,9 @@ const getIndian = async ()=>{
 const getDrinks = async ()=>{
   const drinks = await db.collection('Drinks').get();
   const drinksArray = [];
-  for (var snap of drinks.docs){
-    var data = snap.data();
-    data.ID = snap.ID;
+  for (let snap of drinks.docs){
+    let data = snap.data();
+    data.ID = snap.id;
     drinksArray.push({
       ...data
     })
@@ -104,10 +104,19 @@ useEffect(()=>{
   getDrinks();
 },[])
 
+////Add To Cart Function
+let Product;
 const addToCart = (product) =>{
   if(uid!==null){
-  console.log(product);
+  console.log(product.id);
+  // Product = product;
+  // Product['qty']=1;
+  // Product['TotalProductPrice']=Product.qty*Product.price;
+  // db.collection('Cart ' + uid).doc(product.ID).set(Product).then(()=>{
+  //   alert('Success!!!!');
+  // })
   }else{
+
     alert('Please Login To Order');
   }
 }
@@ -214,6 +223,7 @@ const addToCart = (product) =>{
             </div>
             <br></br>          
         </section>
+        {/*Modal Configuration*/}
         <Modal open={isOpen} onClose={() => setIsOpen(false)} title={mtitle}>
           <h1>{mContent}</h1>
         </Modal>

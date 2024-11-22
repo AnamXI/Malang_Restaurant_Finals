@@ -11,10 +11,9 @@ export const Login = ({ user }) => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
+////Standard Firebase Login Authentication
     const Login = (e) => {
         e.preventDefault();
-        // console.log("form submitted");
-        // console.log(name, email, password);
         auth.signInWithEmailAndPassword(email, password).then(()=>{
             setEmail('');
             setPassword('');
