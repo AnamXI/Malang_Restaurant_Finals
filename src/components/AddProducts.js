@@ -3,6 +3,7 @@ import '../App.css';
 import {storage, db} from '../config/Config'
 import Navbar from '../Navbar';
 
+
 export const AddProducts = () => {
 
     const [productName, setProductName] = useState('');

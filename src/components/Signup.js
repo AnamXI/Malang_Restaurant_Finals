@@ -1,32 +1,33 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import '../App.css';
 import Navbar from '../Navbar';
 import {auth, db} from '../config/Config';
+import { Link, useNavigate } from 'react-router-dom';
 
-const Signup = (props) => {
+const Signup = () => {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const Signup = (e) => {
         e.preventDefault();
-        // console.log("form submitted");
-        // console.log(name, email, password);
+        // NOTE: EMAIL ENNUMERATION PROTECTION HAS BEEN DISABLED MANUALLY
         auth.createUserWithEmailAndPassword(email, password).then((cred)=>{
-           db.collection('SignedUpUsersData').doc(cred.user.uid).set({
+           db.collection('RegisteredUsers').doc(cred.user.uid).set({
                 Name: name,
-                Password: password,
                 Email: email,
+                Password: password
            }).then(()=>{
             setName('');
             setEmail('');
             setPassword('');
             setError('');
-            props.histoy.push('/login')
-           }); 
-        })
+            navigate('/login')
+           }).catch(err=>setError(err.message)); 
+        }).catch(err=>setError(err.message));
     }
 
     return (
@@ -36,9 +37,9 @@ const Signup = (props) => {
             <h2>Sign Up</h2>
             <hr/>
             <div>
-            <form autoComplete="off" className="form-group">
+            <form autoComplete="off" className="form-group" onSubmit={Signup}>
 
-                <label htmlFor="Name" onSubmit={Signup}>Name</label>
+                <label htmlFor="Name" >Name</label>
                 <br/>
                 <input type="text" className="form-control" required
                 onChange={(e) => setName(e.target.value)} value={name}/>
@@ -52,7 +53,7 @@ const Signup = (props) => {
 
                 <label htmlFor="Password">Password</label>
                 <br/>
-                <input type="password" className="form-control" required
+                <input type="text" className="form-control" required
                 onChange={(e) => setPassword(e.target.value)} value={password}/>
                 <br/>
                 <button type="submit">REGISTER</button>
@@ -67,7 +68,10 @@ const Signup = (props) => {
 
             </form>
             </div>
-            {error && <div>{error}</div>}
+            {error && <div className="error-msg">{error}</div>}
+            <br />
+            <span>Already have an account? <Link to="/login">Login</Link></span>
+
         </div>
   )
 }
