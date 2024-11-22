@@ -43,7 +43,7 @@ export default function Modal({ open, children, onClose, title }) {
                 </div>
                 <h1 style={{fontSize:'clamp(20px, 5vw, 50px)'}}>{title}</h1>
         </div>
-                <button onClick={onClose}>CLOSE</button>
+                <button onClick={onClose} style={{backgroundColor:"rgba(0,0,0,0)", padding:"0 20px 0 0",boxShadow:"none", fontSize:'clamp(10px, 2vw, 20px)'}}><h1>CLOSE</h1></button>
 
             </div>
             {children}
