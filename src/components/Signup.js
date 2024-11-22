@@ -26,7 +26,7 @@ export const Signup = ({ user }) => {
             setEmail('');
             setPassword('');
             setError('');
-            navigate('/login')
+            navigate('/')
            }).catch(err=>setError(err.message)); 
         }).catch(err=>setError(err.message));
     }

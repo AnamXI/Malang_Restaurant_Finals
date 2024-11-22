@@ -1,72 +1,69 @@
 import React, {useEffect, useState} from 'react'
 import { Navbar } from './Navbar'
-import { Products } from './Products'
 import { auth, db } from './config/Config'
 import './App.css';
+import { OrderItems } from './OrderItems';
+import { useNavigate } from 'react-router-dom';
 
-export const Orders = ({ user }) => {
-  const [pinoy, setPinoy] = useState([]);
-  const [indian, setIndian] = useState([]);
-  const [sweets, setSweets] = useState([]);
-  const [drinks, setDrinks] = useState([]);
-
-////Gets The Pinoy Menu
-const getPinoy = async ()=>{
-  const pinoy = await db.collection('Pinoy').get();
-  const pinoyArray = [];
-  for (var snap of pinoy.docs){
-    var data = snap.data();
-    data.ID = snap.ID;
-    pinoyArray.push({
-      ...data
-    })
-    if (pinoyArray.length === pinoy.docs.length){
-      setPinoy(pinoyArray);
-    }}}
-
-////Gets The Sweets Menu
-  const getSweets = async ()=>{
-    const sweets = await db.collection('Sweets').get();
-    const sweetsArray = [];
-    for (var snap of sweets.docs){
-      var data = snap.data();
-      data.ID = snap.ID;
-      sweetsArray.push({
-        ...data
+export const Orders = ({ users }) => {
+ 
+  //Get Current User
+  function GetCurrentUser(){
+    const [user, setUser]=useState(null);
+    useEffect(()=>{
+      auth.onAuthStateChanged(user=>{
+        if(user){
+          db.collection('RegisteredUsers').doc(user.uid).get().then(snapshot=>{
+            setUser(snapshot.data().Name);
+          })
+        }
+        else{
+          setUser(null);
+        }
       })
-      if (sweetsArray.length === sweets.docs.length){
-        setSweets(sweetsArray);
-      }}}
+    },[])
+    return user;
+  }
 
-      
+  const user = GetCurrentUser();
+  const [cartItems, setCartItems] = useState([]);
+  const Navigate = useNavigate();
 
-
-//BORDER///////////////////////////////////////////////
   useEffect(()=>{
-    getPinoy();
-    getSweets();
+    auth.onAuthStateChanged(user=>{
+      if(user){
+        db.collection('Cart ' + user.id).onSnapshot(snapshot=>{
+          const newCartProduct = snapshot.docs.map((doc)=>({
+            ID: doc.id,
+            ...doc.data(),
+          }));
+          setCartItems(newCartProduct);
+        })
+      }else{
+        Navigate('/');
+      }
+    })
   },[])
+
+  console.log({cartItems});
 
   return (
     <>
     <div className='App-header'>
-        <Navbar user={user}/>
-        <br />
-        <h1>ORDERS</h1>
-        <br></br>
-        <hr />      
-
-        {sweets.length > 0 && (
+        <Navbar user={users}/>
+        <br/><hr/>           
+        {cartItems.length > 0 && (
           <div>
-            <h1>Products</h1>
+            <h1>Cart</h1>
             <div className='cardbox'>
-              <Products products={sweets}/>
-              </div>
+              <OrderItems cartItems={cartItems}/>            
+            </div>
           </div>
         )}
-        {sweets.length < 1 && (
-          <div>Please Wait....</div>
+        {cartItems.length < 1 && (
+          <div><h2>There are no products to Show</h2></div>
         )}
+        
     </div>
     </>
   )

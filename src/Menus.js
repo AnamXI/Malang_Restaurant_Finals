@@ -129,7 +129,7 @@ const addToCart = (product) =>{
         <Navbar user={user}/>    
 
         {/*MAIN MENUS*/}
-        <section className="container" style={{backgroundImage: `url("assets/menusbg.png")`, backgroundSize: "cover", color: "black", padding: "120px 0px 200px 0px", height: "100vh"}} >
+        <section className="container" style={{backgroundImage: `url("assets/menusbg.png")`, backgroundSize: "cover", color: "black", padding: "120px 0px 200px 0px", height: "100%"}} >
             <h1 style={{fontSize: "calc(20px + 4vw)"}}>Explore Our Various Flavors!</h1>
 
             <div className="cardbox">

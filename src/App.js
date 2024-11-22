@@ -45,7 +45,7 @@ render(){
         <Route exact path="/" element={<Home user={this.state.user} />}/>
         <Route path="/menus" element={<Menus user={this.state.user}/>}/>
         <Route path="/account" element={<Account user={this.state.user}/>}/>
-        <Route path="/orders" element={<Orders user={this.state.user}/>}/>
+        <Route path="/orders" element={<Orders users={this.state.user}/>}/>
         <Route path="/signup" element={<Signup user={this.state.user}/>}/>
         <Route path="/login" element={<Login user={this.state.user}/>}/>
         <Route path="/ap" element={<AddProducts user={this.state.user}/>}/>
