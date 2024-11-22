@@ -108,13 +108,13 @@ useEffect(()=>{
 let Product;
 const addToCart = (product) =>{
   if(uid!==null){
-  console.log(product.id);
-  // Product = product;
-  // Product['qty']=1;
-  // Product['TotalProductPrice']=Product.qty*Product.price;
-  // db.collection('Cart ' + uid).doc(product.ID).set(Product).then(()=>{
-  //   alert('Success!!!!');
-  // })
+  
+  Product = product;
+  Product['qty']=1;
+  Product['TotalProductPrice']=Product.qty*Product.price;
+  db.collection('Cart ' + uid).doc(product.ID).set(Product).then(()=>{
+    alert('Success!!!!');
+  })
   }else{
 
     alert('Please Login To Order');
