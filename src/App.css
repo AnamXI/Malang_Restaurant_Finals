@@ -4,13 +4,26 @@
 
 h1{ font-family: KP, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;;  margin-top: 0px;  margin-bottom: 0px;}
 h2 {font-family: KP, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;; margin-top: 0px;  margin-bottom: 0px;}
+h3 {font-family: KP; font-weight: lighter; margin-top: 0px;  margin-bottom: 0px;}
 h4 {font-family: Ara; font-weight: lighter; margin-top: 0px;  margin-bottom: 0px;}
 hr {width: 80%;}
+p {font-family: Ara; font-weight: lighter; margin-top: 0px;  margin-bottom: 0px;}
 
 button {
   padding: 12px 64px 12px 64px;  border: none;
   border-radius: 40px;  background-color: #ffde59;
   font-family: KP, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  box-shadow: 2px 2px #282c34;
+}
+
+button:active{
+  background-color: #ffcc00;
+  position: relative;
+  top: 2px; left: 2px;
+}
+
+button:hover{
+  cursor: pointer;
 }
 
 label {
@@ -57,6 +70,7 @@ label {
   justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 10px;
+  position: relative;
 }
 
 .card {
@@ -69,17 +83,16 @@ label {
 
 .fcard { /* Food Card */
   width: 250px;
-  height: 300px;
+  height: 320px;
   margin: 20px;
   background-color: white;
-  border-radius: 20px;
-  
+  border-radius: 18px;
+  color: black;
 }
 
 .card:hover{
   transform: scale(1.1);
   cursor: pointer;
-  transition: all 0.1s ease-in;
 }
 
 .card:not(:hover){
@@ -100,15 +113,16 @@ label {
 
 .fcardimg { /* Food Card Image */
   background-color: blue;
-  height: 200px;
-  margin-bottom: 20px;
+  height: 160px;
+  margin-bottom: 0px;
   background-Size: cover;
   border: none;
   border-radius: 0px;
   width: 100%; 
   object-fit: cover;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  
 }
 
 .form-control {
