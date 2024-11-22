@@ -60,7 +60,7 @@ const getPinoy = async ()=>{
           <div>
             <h1>Products</h1>
             <div className='cardbox'>
-              <Products products={pinoy}/>
+              <Products products={sweets}/>
               </div>
           </div>
         )}
