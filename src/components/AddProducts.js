@@ -16,7 +16,7 @@ export const AddProducts = () => {
         console.log(productName,productPrice,productDesc,productImg);
 
         //Manual Change of ('e') to appropriate menu category
-        db.collection('Indian').add({ 
+        db.collection('Drinks').add({ 
             ProductName: productName,
             ProductPrice: productPrice,
             ProductDesc: productDesc,
@@ -70,6 +70,7 @@ export const AddProducts = () => {
 
         </form>
         {error&&<span>{error}</span>}
+        <h4 style={{marginTop:"20%"}}>Make sure to check if it's the right collection  See "e" comment above ^W^</h4>
     </div>
   )
 }

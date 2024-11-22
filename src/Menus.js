@@ -34,7 +34,7 @@ const getPinoy = async ()=>{
       setPinoy(pinoyArray);
     }}}
 
-////Gets The Pinoy Menu
+////Gets The Indian Menu
 const getIndian = async ()=>{
   const indian = await db.collection('Indian').get();
   const indianArray = [];
@@ -62,12 +62,27 @@ const getIndian = async ()=>{
         setSweets(sweetsArray);
       }}}
 
+////Gets The Drinks Menu
+const getDrinks = async ()=>{
+  const drinks = await db.collection('Drinks').get();
+  const drinksArray = [];
+  for (var snap of drinks.docs){
+    var data = snap.data();
+    data.ID = snap.ID;
+    drinksArray.push({
+      ...data
+    })
+    if (drinksArray.length === drinks.docs.length){
+      setDrinks(drinksArray);
+    }}}
+
 
 ////Retrieve Menus & Arrays
 useEffect(()=>{
   getPinoy();
   getIndian();
   getSweets();
+  getDrinks();
 },[])
 
 ////Page Proper
@@ -153,8 +168,16 @@ useEffect(()=>{
                     <button className="cardimg" style={{backgroundImage: `url("assets/mdrinks.png")`}}
                     onClick={function() {setIsOpen(true); setMtitle('Drinks'); setMcontent(
                       <>
-                        <h1>DRINKS</h1>
-                        <h4>& Alcohol</h4>
+                        {drinks.length > 0 && (
+                            <div>
+                              <div className='fcardbox'>
+                                <Products products={drinks}/>
+                                </div>
+                            </div>
+                          )}
+                          {drinks.length < 1 && (
+                            <div>Please Wait....</div>
+                          )}
                       </>
                     )}}></button>
                     <h2>Drinks</h2>
