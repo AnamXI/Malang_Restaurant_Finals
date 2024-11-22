@@ -111,9 +111,9 @@ const addToCart = (product) =>{
   
   Product = product;
   Product['qty']=1;
-  Product['TotalProductPrice']=Product.qty*Product.price;
+  Product['TotalProductPrice']=Product.qty*Product.ProductPrice;
   db.collection('Cart ' + uid).doc(product.ID).set(Product).then(()=>{
-    alert('Success!!!!');
+    alert('Ordered Successfully');
   })
   }else{
 

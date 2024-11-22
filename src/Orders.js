@@ -25,10 +25,12 @@ export const Orders = ({ users }) => {
     return user;
   }
 
+////Gets User, Initializes Cart Items Array & useNavigate
   const user = GetCurrentUser();
   const [cartItems, setCartItems] = useState([]);
   const Navigate = useNavigate();
 
+////Fills in Cart Items Array. Checks if user is still logged in (as logout button is instant)
   useEffect(()=>{
     auth.onAuthStateChanged(user=>{
       if(user){
@@ -45,16 +47,17 @@ export const Orders = ({ users }) => {
     })
   },[])
 
-  console.log({cartItems});
+////To check, possible for the presentation.
+ console.log({cartItems});
 
   return (
     <>
-    <div className='App-header'>
+    <div className='App-header'style={{backgroundImage:`url("assets/mainbr.png")`}}>
         <Navbar user={users}/>
-        <br/><hr/>           
+        <br/>         
         {cartItems.length > 0 && (
-          <div>
-            <h1>Cart</h1>
+          <div style={{width: '80%', height:'100%'}}>
+            <h1>Ordered Items</h1> <hr style={{width: '90%'}}/>
             <div className='cardbox'>
               <OrderItems cartItems={cartItems}/>            
             </div>
