@@ -10,7 +10,7 @@ export default function Orders() {
   const [sweets, setSweets] = useState([]);
   const [drinks, setDrinks] = useState([]);
 
-////Gets The Sweets Menu
+////Gets The Pinoy Menu
 const getPinoy = async ()=>{
   const pinoy = await db.collection('Pinoy').get();
   const pinoyArray = [];
@@ -60,7 +60,7 @@ const getPinoy = async ()=>{
           <div>
             <h1>Products</h1>
             <div className='cardbox'>
-              <Products products={sweets}/>
+              <Products products={pinoy}/>
               </div>
           </div>
         )}
