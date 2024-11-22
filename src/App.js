@@ -4,7 +4,6 @@ import { Home } from './Home';
 import { Routes, Route } from "react-router-dom";
 import { Menus } from './Menus';
 import { Account } from './Account';
-import { Reservations } from './Reservations';
 import { Orders } from './Orders';
 import { AddProducts } from './components/AddProducts';
 import { Signup }  from './components/Signup';
@@ -44,13 +43,12 @@ render(){
       <Routes>
         {/* <Route exact path="/" element={<Home />}/> */}
         <Route exact path="/" element={<Home user={this.state.user} />}/>
-        <Route path="/menus" element={<Menus />}/>
-        <Route path="/account" element={<Account />}/>
-        <Route path="/reservations" element={<Reservations />}/>
-        <Route path="/orders" element={<Orders />}/>
-        <Route path="/signup" element={<Signup />}/>
-        <Route path="/login" element={<Login />}/>
-        <Route path="/ap" element={<AddProducts />}/>
+        <Route path="/menus" element={<Menus user={this.state.user}/>}/>
+        <Route path="/account" element={<Account user={this.state.user}/>}/>
+        <Route path="/orders" element={<Orders user={this.state.user}/>}/>
+        <Route path="/signup" element={<Signup user={this.state.user}/>}/>
+        <Route path="/login" element={<Login user={this.state.user}/>}/>
+        <Route path="/ap" element={<AddProducts user={this.state.user}/>}/>
       </Routes>
 
 

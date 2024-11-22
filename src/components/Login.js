@@ -5,7 +5,7 @@ import {auth} from '../config/Config';
 import { Link, useNavigate } from 'react-router-dom';
 
 
-export const Login = () => {
+export const Login = ({ user }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -26,7 +26,7 @@ export const Login = () => {
 
     return (
         <div className="App-header">
-            <Navbar />
+            <Navbar user={user}/>
             <br/>
             <h2>Log In</h2>
             <hr/>

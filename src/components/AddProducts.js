@@ -4,7 +4,7 @@ import {storage, db} from '../config/Config'
 import { Navbar } from '../Navbar';
 
 
-export const AddProducts = () => {
+export const AddProducts = ({ user }) => {
 
     const [productName, setProductName] = useState('');
     const [productPrice, setProductPrice] = useState(0);
@@ -34,7 +34,7 @@ export const AddProducts = () => {
   return (
     <div className="App-header">
 
-        <Navbar />
+        <Navbar user={user}/>
         <br/>
         <h2>Add Products</h2>
         <hr/>

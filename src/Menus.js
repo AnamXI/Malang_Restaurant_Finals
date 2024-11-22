@@ -10,7 +10,7 @@ import Orders from './Orders';
 
 
 
-export const Menus = () => {
+export const Menus = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false); //Opens Modals
   const [mContent, setMcontent] = useState(); //Sets Content Of Menu Modals
   const [mtitle, setMtitle] = useState(''); //Modal Title
@@ -90,7 +90,7 @@ useEffect(()=>{
     <div className="App">
       <header className="App-header">
 
-        <Navbar />    
+        <Navbar className="nav"/>    
 
         {/*MAIN MENUS*/}
         <section className="container" style={{backgroundImage: `url("assets/menusbg.png")`, backgroundSize: "cover", color: "black", padding: "120px 0px 200px 0px", height: "100vh"}} >

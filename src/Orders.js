@@ -4,7 +4,7 @@ import { Products } from './Products'
 import { auth, db } from './config/Config'
 import './App.css';
 
-export const Orders = () => {
+export const Orders = ({ user }) => {
   const [pinoy, setPinoy] = useState([]);
   const [indian, setIndian] = useState([]);
   const [sweets, setSweets] = useState([]);
@@ -50,7 +50,7 @@ const getPinoy = async ()=>{
   return (
     <>
     <div className='App-header'>
-        <Navbar />
+        <Navbar user={user}/>
         <br />
         <h1>ORDERS</h1>
         <br></br>

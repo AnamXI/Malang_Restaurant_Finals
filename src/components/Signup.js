@@ -4,7 +4,7 @@ import { Navbar } from '../Navbar';
 import {auth, db} from '../config/Config';
 import { Link, useNavigate } from 'react-router-dom';
 
-export const Signup = () => {
+export const Signup = ({ user }) => {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -32,7 +32,7 @@ export const Signup = () => {
 
     return (
         <div className="App-header">
-            <Navbar />
+            <Navbar user={user}/>
             <br/>
             <h2>Sign Up</h2>
             <hr/>
