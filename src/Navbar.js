@@ -1,7 +1,14 @@
-import { Link, useMatch, useResolvedPath } from "react-router-dom"
+import React from 'react';
+import { Link, useNavigate } from "react-router-dom"
+import {auth} from './config/Config'
+
 
 export const Navbar = ({user}) => {
-    
+    const Navigate = useNavigate();
+    const Logout = () => {
+        auth.signOut().then(useNavigate('/login'))
+    }
+
     return <section  style={{position: "sticky", top: "0", zIndex: "100"}}>
         
         <nav className="nav">
@@ -24,26 +31,26 @@ export const Navbar = ({user}) => {
         <ul>
             <li style={{marginLeft: "100px"}}><Link to="/">Home</Link></li>
             <li>  <Link to="/menus">Menus</Link>  </li>
-            <li>  <Link to="/account">Account</Link>  </li>
-            <li>  <Link to="/orders">Orders</Link>  </li>
             <li>  <Link to="/signup">SO</Link>  </li>
             <li>  <Link to="/login">LO</Link>  </li>
-            <li>  <Link to="/account">{user}</Link>  </li>
         </ul>}
 
         {user &&
         <ul>
             <li style={{marginLeft: "100px"}}><Link to="/">Home</Link></li>
             <li>  <Link to="/menus">Menus</Link>  </li>
-            <li>  <Link to="/account">Account</Link>  </li>
             <li>  <Link to="/orders">Orders</Link>  </li>
             <li>  <Link to="/account">{user}</Link>  </li>
+            <li>  <Link to="" onClick={Logout}>Logout</Link>  </li>
+          
          
         </ul>}
         </nav>
 
     </section>
 }
+
+// [ THIS IS A FUNCTION FOR ACTIVE NAVBAR COLORS BUT WONT WORK IF IT AINT A FUNCTION ]
 
 // function CustomLink({to, children, ...props}) {
 //     const resolvedPath = useResolvedPath(to)

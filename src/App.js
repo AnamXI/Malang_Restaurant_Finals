@@ -61,3 +61,16 @@ render(){
 }
 
 export default App;
+
+//THINGS TO NOTE
+// component prop is now element prop
+// prop.history.push() should be useNavigate(), same for useHistory()
+// For some reason make sure every proper page is "export const Name = () => {}"
+
+//ERRORS HISTORY 
+// 1) Pages were export default function Name()
+//
+//
+//
+//
+//

@@ -189,6 +189,8 @@ label {
 .nav li:hover{background-color: black;}
 .nav a:hover{color: #ffde59;}
 
+.logout.active{color: #ffde59}
+
 
 @keyframes App-logo-spin {
   from {
