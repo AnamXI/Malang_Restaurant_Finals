@@ -10,6 +10,10 @@ h5 {font-family: Ara; font-weight: lighter; margin-top: 0px;  margin-bottom: 0px
 hr {width: 80%;}
 p {font-family: Ara; font-weight: lighter; margin-top: 0px;  margin-bottom: 0px;}
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 button {
   padding: 12px 64px 12px 64px;  border: none;
   border-radius: 40px;  background-color: #ffde59;
