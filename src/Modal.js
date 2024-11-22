@@ -27,7 +27,7 @@ const OVERLAY_STYLES = {
     zIndex: 999
 }
 
-export default function Modal({ open, children, onClose }) {
+export default function Modal({ open, children, onClose, title }) {
     if (!open) return null
 
   return ReactDom.createPortal(
@@ -38,10 +38,10 @@ export default function Modal({ open, children, onClose }) {
             
         <div style={{display:'flex', alignItems:'center'}}>
                 <div style={{backgroundImage: 'url("assets/Matsala.png")', 
-                    width:'80px', height:'80px', backgroundSize:'cover',
+                    width:'100px', height:'100px', backgroundSize:'cover',
                     position:'relative', marginRight:'20px'}}>                    
                 </div>
-                <h1 style={{fontSize:'clamp(20px, 5vw, 50px)'}}>Sweets</h1>
+                <h1 style={{fontSize:'clamp(20px, 5vw, 50px)'}}>{title}</h1>
         </div>
                 <button onClick={onClose}>CLOSE</button>
 
@@ -53,17 +53,4 @@ export default function Modal({ open, children, onClose }) {
     document.getElementById('portal')
   )
 }
-
-
-{/* <div style={{display:'flex', justifyContent:'space-between'}}>
-            
-            <div style={{backgroundImage: 'url("assets/logostamp.png")', 
-                width:'125px', height:'125px', backgroundSize:'cover',
-                position:'absolute',bottom:'78%'}}>
-                
-            </div>
-            <h1 style={{marginLeft:'15%'}}>Sweets</h1>
-            <button onClick={onClose}>CLOSE</button>
-
-        </div> */}
 

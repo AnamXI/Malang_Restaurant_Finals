@@ -13,6 +13,7 @@ import Orders from './Orders';
 export default function Menus() {
   const [isOpen, setIsOpen] = useState(false); //Opens Modals
   const [mContent, setMcontent] = useState(); //Sets Content Of Menu Modals
+  const [mtitle, setMtitle] = useState(''); //Modal Title
 
   const [pinoy, setPinoy] = useState([]);
   const [indian, setIndian] = useState([]);
@@ -70,10 +71,18 @@ useEffect(()=>{
                   {/*PINOY MENU MODAL*/}
                   <div className="card">
                     <button className="cardimg" style={{backgroundImage: `url("assets/mpinoy.png")`}}
-                    onClick={function() {setIsOpen(true); setMcontent(
+                    onClick={function() {setIsOpen(true); setMtitle('Pinoy'); setMcontent(
                       <>
-                        <h1>PINOY</h1>
-                        <h4>Foods Menu</h4>
+                        {pinoy.length > 0 && (
+                            <div>
+                              <div className='fcardbox'>
+                                <Products products={pinoy}/>
+                                </div>
+                            </div>
+                          )}
+                          {pinoy.length < 1 && (
+                            <div>Please Wait....</div>
+                          )}
                       </>
                     )}}></button>
                     <h2>Pinoy</h2>
@@ -83,7 +92,7 @@ useEffect(()=>{
                   {/*INDIAN MENU MODAL*/}
                   <div className="card">
                     <button className="cardimg" style={{backgroundImage: `url("assets/mindian.png")`}}
-                    onClick={function() {setIsOpen(true); setMcontent(
+                    onClick={function() {setIsOpen(true); setMtitle('Indian'); setMcontent(
                       <>
                         <h1>JALIJALI</h1>
                         <h4>Jalebi JaliJali</h4>
@@ -96,9 +105,9 @@ useEffect(()=>{
                   {/*SWEETS MENU MODAL*/}
                   <div className="card">
                     <button className="cardimg" style={{backgroundImage: `url("assets/msweets.png")`}}
-                    onClick={function() {setIsOpen(true); setMcontent(
+                    onClick={function() {setIsOpen(true); setMtitle('Sweets'); setMcontent(
                       <>
-
+                      
                         {sweets.length > 0 && (
                             <div>
                               <div className='fcardbox'>
@@ -119,7 +128,7 @@ useEffect(()=>{
                   {/*DRINKS MENU MODAL*/}
                   <div className="card">
                     <button className="cardimg" style={{backgroundImage: `url("assets/mdrinks.png")`}}
-                    onClick={function() {setIsOpen(true); setMcontent(
+                    onClick={function() {setIsOpen(true); setMtitle('Drinks'); setMcontent(
                       <>
                         <h1>DRINKS</h1>
                         <h4>& Alcohol</h4>
@@ -132,7 +141,7 @@ useEffect(()=>{
             </div>
             <br></br>          
         </section>
-        <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+        <Modal open={isOpen} onClose={() => setIsOpen(false)} title={mtitle}>
           <h1>{mContent}</h1>
         </Modal>
 

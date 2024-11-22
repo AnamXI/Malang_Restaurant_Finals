@@ -63,7 +63,7 @@ label {
   justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 10px;
-  overflow: scroll;
+
 }
 
 .fcardbox {  /* Food Card Box */
@@ -107,7 +107,7 @@ label {
 }
 
 .cardimg {
-  background-color: blue;
+  background-color: white;
   height: 420px;
   margin-bottom: 20px;
   background-Size: cover;
@@ -118,7 +118,7 @@ label {
 }
 
 .fcardimg { /* Food Card Image */
-  background-color: blue;
+  background-color: #c4c4c4;
   height: 160px;
   margin-bottom: 0px;
   background-Size: cover;
