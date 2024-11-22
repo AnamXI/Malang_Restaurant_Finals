@@ -16,11 +16,11 @@ export const AddProducts = () => {
         console.log(productName,productPrice,productDesc,productImg);
 
         //Manual Change of ('e') to appropriate menu category
-        db.collection('Pinoy').add({ 
+        db.collection('Indian').add({ 
             ProductName: productName,
             ProductPrice: productPrice,
             ProductDesc: productDesc,
-            ProductImg: 'assets/foods/' + productImg
+            ProductImg: 'assets/foods/' + productImg + '.png'
         }).then(()=>{
             setProductName('');
             setProductPrice(0);

@@ -20,7 +20,7 @@ export default function Menus() {
   const [sweets, setSweets] = useState([]);
   const [drinks, setDrinks] = useState([]);
 
-  ////Gets The Pinoy Menu
+////Gets The Pinoy Menu
 const getPinoy = async ()=>{
   const pinoy = await db.collection('Pinoy').get();
   const pinoyArray = [];
@@ -32,6 +32,20 @@ const getPinoy = async ()=>{
     })
     if (pinoyArray.length === pinoy.docs.length){
       setPinoy(pinoyArray);
+    }}}
+
+////Gets The Pinoy Menu
+const getIndian = async ()=>{
+  const indian = await db.collection('Indian').get();
+  const indianArray = [];
+  for (var snap of indian.docs){
+    var data = snap.data();
+    data.ID = snap.ID;
+    indianArray.push({
+      ...data
+    })
+    if (indianArray.length === indian.docs.length){
+      setIndian(indianArray);
     }}}
 
 ////Gets The Sweets Menu
@@ -52,6 +66,7 @@ const getPinoy = async ()=>{
 ////Retrieve Menus & Arrays
 useEffect(()=>{
   getPinoy();
+  getIndian();
   getSweets();
 },[])
 
@@ -94,8 +109,16 @@ useEffect(()=>{
                     <button className="cardimg" style={{backgroundImage: `url("assets/mindian.png")`}}
                     onClick={function() {setIsOpen(true); setMtitle('Indian'); setMcontent(
                       <>
-                        <h1>JALIJALI</h1>
-                        <h4>Jalebi JaliJali</h4>
+                        {indian.length > 0 && (
+                            <div>
+                              <div className='fcardbox'>
+                                <Products products={indian}/>
+                                </div>
+                            </div>
+                          )}
+                          {indian.length < 1 && (
+                            <div>Please Wait....</div>
+                          )}
                       </>
                     )}}></button>
                     <h2>INDIAN</h2>
