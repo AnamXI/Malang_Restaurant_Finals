@@ -1,13 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import Navbar from './Navbar';
+import { Navbar } from './Navbar';
 
-function Home() {
+export const Home = ({user}) => {
   return (
     <div className="App">
       <header className="App-header">
 
-        <Navbar />
+        <Navbar user={user} />
     
         {/*PANEL 1*/}
         <section className="container">
@@ -45,4 +45,4 @@ function Home() {
   );
 }
 
-export default Home;
+

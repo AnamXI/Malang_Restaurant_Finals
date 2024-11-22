@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import '../App.css';
-import Navbar from '../Navbar';
-import {auth, db} from '../config/Config';
+import { Navbar } from '../Navbar';
+import {auth} from '../config/Config';
 import { Link, useNavigate } from 'react-router-dom';
 
 
-const Login = () => {
+export const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -60,4 +60,4 @@ const Login = () => {
   )
 }
 
-export default Login
+

@@ -1,6 +1,6 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
 
-export default function Navbar(){
+export const Navbar = ({user}) => {
     
     return <section  style={{position: "sticky", top: "0", zIndex: "100"}}>
         
@@ -20,27 +20,39 @@ export default function Navbar(){
         </Link>
 
         {/* NAVIGATION BUTTONS */}
+        {!user &&
         <ul>
-            <li style={{marginLeft: "100px"}}><CustomLink to="/">Home</CustomLink></li>
-            <li>  <CustomLink to="/menus">Menus</CustomLink>  </li>
-            <li>  <CustomLink to="/account">Account</CustomLink>  </li>
-            <li>  <CustomLink to="/orders">Orders</CustomLink>  </li>
-            <li>  <CustomLink to="/signup">SO</CustomLink>  </li>
-            <li>  <CustomLink to="/login">LO</CustomLink>  </li>
-        </ul>
+            <li style={{marginLeft: "100px"}}><Link to="/">Home</Link></li>
+            <li>  <Link to="/menus">Menus</Link>  </li>
+            <li>  <Link to="/account">Account</Link>  </li>
+            <li>  <Link to="/orders">Orders</Link>  </li>
+            <li>  <Link to="/signup">SO</Link>  </li>
+            <li>  <Link to="/login">LO</Link>  </li>
+            <li>  <Link to="/account">{user}</Link>  </li>
+        </ul>}
+
+        {user &&
+        <ul>
+            <li style={{marginLeft: "100px"}}><Link to="/">Home</Link></li>
+            <li>  <Link to="/menus">Menus</Link>  </li>
+            <li>  <Link to="/account">Account</Link>  </li>
+            <li>  <Link to="/orders">Orders</Link>  </li>
+            <li>  <Link to="/account">{user}</Link>  </li>
+         
+        </ul>}
         </nav>
 
     </section>
 }
 
-function CustomLink({to, children, ...props}) {
-    const resolvedPath = useResolvedPath(to)
-    const isActive = useMatch({path: resolvedPath.pathname, end: true})
-    return (
-        <li className={isActive ? "active" : ""}>
-            <Link to={to} {...props}>
-            {children}
-            </Link>
-        </li>
-    )
-}
+// function CustomLink({to, children, ...props}) {
+//     const resolvedPath = useResolvedPath(to)
+//     const isActive = useMatch({path: resolvedPath.pathname, end: true})
+//     return (
+//         <li className={isActive ? "active" : ""}>
+//             <Link to={to} {...props}>
+//             {children}
+//             </Link>
+//         </li>
+//     )
+// }

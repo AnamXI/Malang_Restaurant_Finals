@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Navbar from './Navbar';
+import { Navbar } from './Navbar';
 import Modal from './Modal';
 import { Products } from './Products'
 import { auth, db } from './config/Config'
@@ -10,7 +10,7 @@ import Orders from './Orders';
 
 
 
-export default function Menus() {
+export const Menus = () => {
   const [isOpen, setIsOpen] = useState(false); //Opens Modals
   const [mContent, setMcontent] = useState(); //Sets Content Of Menu Modals
   const [mtitle, setMtitle] = useState(''); //Modal Title

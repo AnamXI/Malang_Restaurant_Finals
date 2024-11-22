@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import '../App.css';
 import {storage, db} from '../config/Config'
-import Navbar from '../Navbar';
+import { Navbar } from '../Navbar';
 
 
 export const AddProducts = () => {

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import '../App.css';
-import Navbar from '../Navbar';
+import { Navbar } from '../Navbar';
 import {auth, db} from '../config/Config';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Signup = () => {
+export const Signup = () => {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -76,4 +76,3 @@ const Signup = () => {
   )
 }
 
-export default Signup

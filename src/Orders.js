@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react'
-import Navbar from './Navbar'
+import { Navbar } from './Navbar'
 import { Products } from './Products'
 import { auth, db } from './config/Config'
 import './App.css';
 
-export default function Orders() {
+export const Orders = () => {
   const [pinoy, setPinoy] = useState([]);
   const [indian, setIndian] = useState([]);
   const [sweets, setSweets] = useState([]);

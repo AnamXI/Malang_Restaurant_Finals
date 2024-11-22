@@ -1,25 +1,49 @@
+import React, { Component } from 'react';
 import './App.css';
-import Home from './Home';
+import { Home } from './Home';
 import { Routes, Route } from "react-router-dom";
-import Menus from './Menus';
-import Account from './Account';
-import Reservations from './Reservations';
-import Orders from './Orders';
+import { Menus } from './Menus';
+import { Account } from './Account';
+import { Reservations } from './Reservations';
+import { Orders } from './Orders';
 import { AddProducts } from './components/AddProducts';
-import Signup from './components/Signup';
-import Login  from './components/Login';
+import { Signup }  from './components/Signup';
+import { Login }  from './components/Login';
+import {auth, db} from './config/Config';
 
 
-function App() {
-  console.log(window.location)
-  return ( <div className="App-header">
+export class App extends Component {
 
+  state={
+    user: null
+  }
+
+  componentDidMount(){
+    auth.onAuthStateChanged(user=>{
+      if(user){
+        db.collection('RegisteredUsers').doc(user.uid).get().then(snapshot=>{
+          this.setState({
+            user: snapshot.data().Name
+          })
+        })
+      }
+      else{
+        this.setState({
+          user: null
+        })
+      }
+    })
+  }
+
+render(){
+  return ( 
+  <div className="App-header">
     <div className="container">
 
 
       <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/home" element={<Home />}/>
+        {/* <Route exact path="/" element={<Home />}/> */}
+        <Route exact path="/" element={<Home user={this.state.user} />}/>
         <Route path="/menus" element={<Menus />}/>
         <Route path="/account" element={<Account />}/>
         <Route path="/reservations" element={<Reservations />}/>
@@ -33,6 +57,7 @@ function App() {
     </div>
     </div>
   );
+}
 }
 
 export default App;
