@@ -4,8 +4,8 @@ import '../App.css';
 const IndividualProduct = ({individualProduct}) => {
 // console.log(individualProduct);
     return (
-    <div className='card'>
-      <img className='cardimg'src={individualProduct.ProductImg}/>
+    <div className='fcard'>
+      <img className='fcardimg'src={individualProduct.ProductImg} alt='Food Showcase'/>
     </div>
   )
 }

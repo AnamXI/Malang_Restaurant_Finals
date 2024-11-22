@@ -52,11 +52,27 @@ label {
   margin-bottom: 10px;
 }
 
+.fcardbox {  /* Food Card Box */
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
 .card {
   background-color: aqua;
   width: 240px;
   height: 420px;
   margin: 20px;
+  
+}
+
+.fcard { /* Food Card */
+  width: 250px;
+  height: 300px;
+  margin: 20px;
+  background-color: white;
+  border-radius: 20px;
   
 }
 
@@ -80,6 +96,19 @@ label {
   border-radius: 0px;
   width: 100%; 
   box-shadow: 14px 14px #c4c4c4; 
+}
+
+.fcardimg { /* Food Card Image */
+  background-color: blue;
+  height: 200px;
+  margin-bottom: 20px;
+  background-Size: cover;
+  border: none;
+  border-radius: 0px;
+  width: 100%; 
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .form-control {
