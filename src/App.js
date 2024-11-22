@@ -6,6 +6,8 @@ import Account from './Account';
 import Reservations from './Reservations';
 import Orders from './Orders';
 import { AddProducts } from './components/AddProducts';
+import Signup from './components/Signup';
+import Login  from './components/Login';
 
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
         <Route path="/account" element={<Account />}/>
         <Route path="/reservations" element={<Reservations />}/>
         <Route path="/orders" element={<Orders />}/>
+        <Route path="/signup" element={<Signup />}/>
+        <Route path="/login" element={<Login />}/>
         <Route path="/ap" element={<AddProducts />}/>
       </Routes>
 

@@ -24,8 +24,9 @@ export default function Navbar(){
             <li style={{marginLeft: "100px"}}><CustomLink to="/">Home</CustomLink></li>
             <li>  <CustomLink to="/menus">Menus</CustomLink>  </li>
             <li>  <CustomLink to="/account">Account</CustomLink>  </li>
-            <li>  <CustomLink to="/reservations">Reservations</CustomLink>  </li>
             <li>  <CustomLink to="/orders">Orders</CustomLink>  </li>
+            <li>  <CustomLink to="/signup">SO</CustomLink>  </li>
+            <li>  <CustomLink to="/login">LO</CustomLink>  </li>
         </ul>
         </nav>
 
