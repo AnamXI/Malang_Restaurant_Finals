@@ -3,7 +3,7 @@ import '../App.css';
 import Navbar from '../Navbar';
 import {auth, db} from '../config/Config';
 
-const Signup = () => {
+const Signup = (props) => {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -14,8 +14,18 @@ const Signup = () => {
         e.preventDefault();
         // console.log("form submitted");
         // console.log(name, email, password);
-        auth.createUserWithEmailAndPassword(email, password).then((credentials)=>{
-           db.collection(''); 
+        auth.createUserWithEmailAndPassword(email, password).then((cred)=>{
+           db.collection('SignedUpUsersData').doc(cred.user.uid).set({
+                Name: name,
+                Password: password,
+                Email: email,
+           }).then(()=>{
+            setName('');
+            setEmail('');
+            setPassword('');
+            setError('');
+            props.histoy.push('/login')
+           }); 
         })
     }
 
