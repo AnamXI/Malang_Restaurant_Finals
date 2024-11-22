@@ -60,15 +60,18 @@ render(){
 
 export default App;
 
-//THINGS TO NOTE
+//
+//
+// THINGS TO THINK
 // component prop is now element prop
 // prop.history.push() should be useNavigate(), same for useHistory()
 // For some reason make sure every proper page is "export const Name = () => {}"
-
-//ERRORS HISTORY 
+//
+//
+// ERRORS HISTORY 
 // 1) Pages were export default function Name()
-//
-//
-//
+// 2) Watch out for outdated code (React is currently V6)
+// 3) {} & () very different. {} requireds return()
+// 4) [WIP Error] ID being assigned to Cart Products but Cart + Name is undefined
 //
 //

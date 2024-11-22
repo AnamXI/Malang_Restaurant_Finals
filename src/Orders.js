@@ -29,6 +29,7 @@ export const Orders = ({ users }) => {
   const user = GetCurrentUser();
   const [cartItems, setCartItems] = useState([]);
   const Navigate = useNavigate();
+  const [userid, setUserID] = useState('');
 
 ////Fills in Cart Items Array. Checks if user is still logged in (as logout button is instant)
   useEffect(()=>{
