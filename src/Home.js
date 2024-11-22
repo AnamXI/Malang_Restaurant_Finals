@@ -3,6 +3,7 @@ import './App.css';
 import { Navbar } from './Navbar';
 
 export const Home = ({user}) => {
+
   return (
     <div className="App">
       <header className="App-header">

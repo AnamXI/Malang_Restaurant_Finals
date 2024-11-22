@@ -1,8 +1,12 @@
 import React from 'react'
 import '../App.css';
 
-const IndividualProduct = ({individualProduct}) => {
-// console.log(individualProduct);
+export const IndividualProduct = ({individualProduct, addToCart}) => {
+
+  const handleAddToCart=()=>{
+    addToCart(individualProduct);
+  }
+
     return (
     <div className='fcard'>
       <img className='fcardimg'src={individualProduct.ProductImg} alt='Food Showcase'/>
@@ -12,9 +16,9 @@ const IndividualProduct = ({individualProduct}) => {
       <p style={{fontSize: "clamp(20px, 2vw, 20px)"}}>{individualProduct.ProductDesc}</p>
       </div>
       
-      <button><h3>${individualProduct.ProductPrice}.00</h3></button>
+      <button onClick={handleAddToCart}><h3>${individualProduct.ProductPrice}.00</h3></button>
     </div>
   )
 }
 
-export default IndividualProduct
+

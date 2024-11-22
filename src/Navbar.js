@@ -31,8 +31,8 @@ export const Navbar = ({user}) => {
         <ul>
             <li style={{marginLeft: "100px"}}><Link to="/">Home</Link></li>
             <li>  <Link to="/menus">Menus</Link>  </li>
-            <li>  <Link to="/signup">SO</Link>  </li>
-            <li>  <Link to="/login">LO</Link>  </li>
+            <li>  <Link to="/signup">Register</Link>  </li>
+            <li>  <Link to="/login">Log In</Link>  </li>
         </ul>}
 
         {user &&

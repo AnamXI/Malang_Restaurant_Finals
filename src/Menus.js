@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import { Navbar } from './Navbar';
@@ -11,6 +12,24 @@ import Orders from './Orders';
 
 
 export const Menus = ({ user }) => {
+
+  //Get UID to see if logged in for Add To Cart
+  function GetUserId(){
+    const [uid, setUid] = useState(null);
+    useEffect(()=>{
+      auth.onAuthStateChanged(user=>{
+        if(user){
+          setUid(user.id);
+        }
+      })
+    },[])
+    return uid;
+  }
+
+  const uid = GetUserId();
+
+  const Navigate = useNavigate();
+
   const [isOpen, setIsOpen] = useState(false); //Opens Modals
   const [mContent, setMcontent] = useState(); //Sets Content Of Menu Modals
   const [mtitle, setMtitle] = useState(''); //Modal Title
@@ -85,12 +104,20 @@ useEffect(()=>{
   getDrinks();
 },[])
 
+const addToCart = (product) =>{
+  if(uid!==null){
+  console.log(product);
+  }else{
+    alert('Please Login To Order');
+  }
+}
+
 ////Page Proper
   return (
     <div className="App">
       <header className="App-header">
 
-        <Navbar className="nav"/>    
+        <Navbar user={user}/>    
 
         {/*MAIN MENUS*/}
         <section className="container" style={{backgroundImage: `url("assets/menusbg.png")`, backgroundSize: "cover", color: "black", padding: "120px 0px 200px 0px", height: "100vh"}} >
@@ -106,7 +133,7 @@ useEffect(()=>{
                         {pinoy.length > 0 && (
                             <div>
                               <div className='fcardbox'>
-                                <Products products={pinoy}/>
+                                <Products products={pinoy} addToCart={addToCart}/>
                                 </div>
                             </div>
                           )}
@@ -127,7 +154,7 @@ useEffect(()=>{
                         {indian.length > 0 && (
                             <div>
                               <div className='fcardbox'>
-                                <Products products={indian}/>
+                                <Products products={indian} addToCart={addToCart}/>
                                 </div>
                             </div>
                           )}
@@ -149,7 +176,7 @@ useEffect(()=>{
                         {sweets.length > 0 && (
                             <div>
                               <div className='fcardbox'>
-                                <Products products={sweets}/>
+                                <Products products={sweets} addToCart={addToCart}/>
                                 </div>
                             </div>
                           )}
@@ -171,7 +198,7 @@ useEffect(()=>{
                         {drinks.length > 0 && (
                             <div>
                               <div className='fcardbox'>
-                                <Products products={drinks}/>
+                                <Products products={drinks} addToCart={addToCart}/>
                                 </div>
                             </div>
                           )}
