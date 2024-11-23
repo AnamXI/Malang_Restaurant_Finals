@@ -15,7 +15,7 @@ export const IndividualCartItem = ({cartItem}) => {
   }
 
     return  (
-    <div className='fcard' style={{boxShadow:'none', height:'380px'}}>
+    <div className='fcard' style={{boxShadow:'none', height:'400px'}}>
       <img className='fcardimg'src={cartItem.ProductImg} alt='Food Showcase'/>
      
      <div style={{height:"80px"}}>

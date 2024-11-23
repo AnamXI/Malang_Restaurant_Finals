@@ -61,9 +61,9 @@ export const Signup = ({ user }) => {
                 <button type="submit"><h1>REGISTER</h1></button>
             
                 <br/><br/>
-                <h4>{name}</h4>  
+                {/* <h4>{name}</h4>  
                 <h4>{password}</h4>
-                <h4>{email}</h4>
+                <h4>{email}</h4> */}
 
                 
         
