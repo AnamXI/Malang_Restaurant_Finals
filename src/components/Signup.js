@@ -32,12 +32,13 @@ export const Signup = ({ user }) => {
     }
 
     return (
-        <div className="App-header">
+        <div className="App-header" style={{backgroundImage: `url("assets/mainbr.png")`, backgroundSize:"cover"}}>
             <Navbar user={user}/>
             <br/>
+
+            <div style={{alignItems:'center', justifyContent:'center', display:'flex', flex: '1',display:'flex', flexDirection:'column'}}>
             <h2>Sign Up</h2>
-            <hr/>
-            <div>
+            <hr/>            
             <form autoComplete="off" className="form-group" onSubmit={Signup}>
 
                 <label htmlFor="Name" >Name</label>
@@ -56,8 +57,8 @@ export const Signup = ({ user }) => {
                 <br/>
                 <input type="password" className="form-control" required
                 onChange={(e) => setPassword(e.target.value)} value={password}/>
-                <br/>
-                <button type="submit">REGISTER</button>
+                <br/><br/>
+                <button type="submit"><h1>REGISTER</h1></button>
             
                 <br/><br/>
                 <h4>{name}</h4>  
@@ -68,10 +69,11 @@ export const Signup = ({ user }) => {
         
 
             </form>
+            <h4>Already have an account? <Link to="/login" style={{textDecoration:'none', color:'#ffde59'}}>Login</Link></h4>
             </div>
             {error && <div className="error-msg">{error}</div>}
             <br />
-            <span>Already have an account? <Link to="/login">Login</Link></span>
+           
 
         </div>
   )
